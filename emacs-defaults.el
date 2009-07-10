@@ -37,3 +37,12 @@
 
 ;; open any .bash files in sh-mode
 (add-to-list 'auto-mode-alist '("\\.bash.*" . sh-mode))
+
+
+(desktop-save-mode 1)
+
+;; 默认工作目录
+(if (>= emacs-major-version 23)
+    (setq default-directory "~/gitworks")
+  (setq default-directory "~/work"))
+
