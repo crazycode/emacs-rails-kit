@@ -4,7 +4,7 @@
 ;; Author: Karl Landstrom <karl.landstrom@brgeight.se>
 ;; Author: Daniel Colascione <dan.colascione@gmail.com>
 ;; Maintainer: Daniel Colascione <dan.colascione@gmail.com>
-;; Version: 8
+;; Version: 9
 ;; Date: 2009-05-22
 ;; Keywords: languages, oop, javascript
 
@@ -507,7 +507,7 @@ messages."
   (let ((keymap (make-sparse-keymap)))
     (mapc (lambda (key)
             (define-key keymap key #'espresso-insert-and-indent))
-          '("+" "-" "/" "*" "{" "}" "(" ")" ":" ";" ","))
+          '("+" "-" "*" "{" "}" "(" ")" ":" ";" ","))
     (define-key keymap [(control ?c) (meta ?:)] #'espresso-js-eval)
     (define-key keymap [(control ?c) (control ?j)] #'espresso-set-js-context)
     (define-key keymap [(control meta ?x)] #'espresso-eval-defun)
@@ -1654,7 +1654,7 @@ interatively, also display a message with that context."
 ;; as the newline is escaped with \. Account for that in the regexp
 ;; below.
 (defconst espresso--regexp-literal
-  "[=(,:]\\(?:\\s-\\|\n\\)*\\(/\\)[^/*]\\(?:.*?[^\\]\\)?\\(/\\)"
+  "[=(,:]\\(?:\\s-\\|\n\\)*\\(/\\)\\(?:\\\\/\\|[^/*]\\)\\(?:\\\\/\\|[^/]\\)*\\(/\\)"
   "Match a regular expression literal. Match groups 1 and 2 are
 the characters forming the beginning and end of the literal")
 
@@ -3392,4 +3392,3 @@ Key bindings:
 ;; outline-regexp: ";;; "
 ;; End:
 ;; espresso.el ends here
-
