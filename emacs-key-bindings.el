@@ -6,7 +6,7 @@
 (global-set-key (kbd "M-z") 'undo)
 
 ;; set line commenting to textmate style
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-x M-/") 'comment-or-uncomment-region)
 
 ;; above commenting binding took over this useful function
 (global-set-key (kbd "M-d") 'dabbrev-expand)
