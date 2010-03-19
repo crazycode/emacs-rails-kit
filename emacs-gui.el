@@ -11,7 +11,14 @@
 ;; turn off 3d modeline
 (set-face-attribute 'mode-line nil :box nil)
 
-(column-number-mode t)
+;; smoother scrolling
+(setq
+ scroll-margin 0                  
+  scroll-conservatively 100000
+  scroll-preserve-screen-position 1)
+
+; apply syntax highlighting to all buffers
+(global-font-lock-mode t)
 
 ;; Full screen toggle 
 (defun toggle-fullscreen ()
@@ -41,16 +48,10 @@
 ;; color theme - with merbivore and vibrant ink themes included
 (load-lib-dir "vendor/color-theme")
 (load-lib-dir "vendor/color-theme-merbivore")
-(load-lib-dir "vendor/color-theme-vibrant-ink")
-(load-lib-dir "vendor/color-theme-tango-2")
-(load-lib-dir "vendor/color-theme-wunki")
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (load-file (concat root-dir "/vendor/color-theme-merbivore/color-theme-merbivore.el"))
-(load-file (concat root-dir "/vendor/color-theme-vibrant-ink/color-theme-vibrant-ink.el"))
-(load-file (concat root-dir "/vendor/color-theme-tango-2/color-theme-tango-2.el"))
-(load-file (concat root-dir "/vendor/color-theme-wunki/color-theme-wunki.el"))
 
 ;; load the theme
-(color-theme-vibrant-ink)
+(color-theme-merbivore)
